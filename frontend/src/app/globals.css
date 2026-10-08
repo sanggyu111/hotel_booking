@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+/* 디자인 토큰: 따뜻한 종이색 바탕 + 짙은 청록 포인트 */
+@theme {
+  --color-paper: #f6f2ea;
+  --color-paper-raised: #fbf9f5;
+  --color-ink: #1c2321;
+  --color-muted: #6b706b;
+  --color-line: #e2dbcf;
+  --color-accent: #0f6b5c;
+  --color-accent-strong: #0b5649;
+  --color-accent-soft: #e4f1ed;
+  --color-danger: #b3261e;
+}
+
+/* next/font가 html에 붙여 주는 CSS 변수를 Tailwind 글꼴로 연결 */
+@theme inline {
+  --font-sans: var(--font-body), system-ui, -apple-system, "Apple SD Gothic Neo", sans-serif;
+  --font-display: var(--font-heading), var(--font-body), serif;
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  /* 홈 화면에 설치했을 때 아이폰 노치·홈 바 영역 피하기 */
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom)
+    env(safe-area-inset-left);
+}
+
+/* 네이티브 날짜 선택기 아이콘을 포인트 색으로 */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.6;
+}
